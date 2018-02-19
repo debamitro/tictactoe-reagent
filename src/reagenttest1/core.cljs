@@ -200,13 +200,16 @@
 (defn hello-world []
   [:div
    [:h1 (:text @app-state)]
-   [:h3 "Click to play with circles"]
+   [:h3 "Click to play with circles (computer plays crosses)"]
+   [:p
+    [:a {:href "https://github.com/debamitro/tictactoe-reagent" :target "_blank"} "Source code"]
+    ]
    [:button {:on-click #(swap! app-state assoc
                                :board
                                {:0 0 :1 0 :2 0 :3 0 :4 0 :5 0 :6 0 :7 0 :8 0}
              :winner :none)
              } "Clear"]
-   [:button {:on-click random-move} "Manual Move"]
+   [:button {:on-click random-move} "Manual Move by computer"]
    [:svg {:width 300 :height 300}
     [:line {:x1 80 :y1 0 :x2 80 :y2 240 :style {:stroke "black" :stroke-width 2}}]
     [:line {:x1 160 :y1 0 :x2 160 :y2 240 :style {:stroke "black" :stroke-width 2}}]
